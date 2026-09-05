@@ -40,25 +40,29 @@ public class StudentController {
                 .body(StudentResponse.fromStudent(createdStudent));
     }
 
-    // Delete student
+
+    // Delete one student
     @DeleteMapping(path = "/{studentID}")
     public void deleteStudent(@PathVariable Long studentID){
         studentService.deleteStudent(studentID);
     }
 
+    // Delete all students
+    @DeleteMapping
+    public void deleteAllStudents() {
+        studentService.deleteAllStudents();
+    }
+
     // PUT
     @PutMapping(path = "/{studentID}")
-    public void updateStudent(
-            @PathVariable Long studentID,
-            @RequestBody @Valid StudentRequest request) {
+    public void updateStudent(@PathVariable Long studentID, @RequestBody @Valid StudentRequest request) {
         studentService.updateStudent(studentID, request);
     }
 
     // PATCH
     @PatchMapping(path = "/{studentID}")
-    public void patchStudent(
-            @PathVariable Long studentID,
-            @RequestBody @Valid StudentRequest request) {
+    public void patchStudent(@PathVariable Long studentID, @RequestBody @Valid StudentRequest request) {
         studentService.patchStudent(studentID, request);
     }
+
 }
