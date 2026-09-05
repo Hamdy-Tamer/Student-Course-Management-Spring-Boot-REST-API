@@ -45,7 +45,7 @@ public class StudentService {
         return studentRepository.save(student);
     }
 
-    // Delete
+    // Delete one student
     public void deleteStudent(Long studentID){
         boolean exists = studentRepository.existsById(studentID);
 
@@ -54,6 +54,11 @@ public class StudentService {
         }
         studentRepository.deleteById(studentID);
 
+    }
+
+    // Delete all students
+    public void deleteAllStudents() {
+        studentRepository.deleteAll();
     }
 
     // PUT
