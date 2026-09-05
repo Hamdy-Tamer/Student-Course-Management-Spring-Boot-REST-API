@@ -54,6 +54,7 @@ public class CourseService {
         );
     }
 
+    // Delete one course
     public void deleteCourse(Long courseID){
         boolean exists =
                 courseRepository.existsById(courseID);
@@ -64,6 +65,11 @@ public class CourseService {
             );
         }
         courseRepository.deleteById(courseID);
+    }
+
+    // Delete all courses
+    public void deleteAllCourses() {
+        courseRepository.deleteAll();
     }
 
     // PUT
